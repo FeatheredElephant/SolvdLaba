@@ -1,5 +1,8 @@
 import java.util.*;
 
+import Accounts.Register;
+import Products.Product;
+
 public class Shop {
 	private String name;
 	private String address;

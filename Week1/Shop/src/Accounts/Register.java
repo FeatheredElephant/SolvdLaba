@@ -1,4 +1,11 @@
+package Accounts;
 import java.util.*;
+
+import Constants;
+import Customer;
+import Employee;
+import Receipt;
+import Products.Product;
 
 public class Register extends Account {
 	private String id;

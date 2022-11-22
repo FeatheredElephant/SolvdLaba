@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+import Accounts.Register;
+import Products.Product;
+
 public class Receipt {
 	ArrayList<Product> purchasedProducts;
 	String paymentMethod;

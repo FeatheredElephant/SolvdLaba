@@ -1,3 +1,4 @@
+import Accounts.Account;
 
 public class Employee {
 	int MINIMUMWAGE = Constants.getMINIMUMWAGE();

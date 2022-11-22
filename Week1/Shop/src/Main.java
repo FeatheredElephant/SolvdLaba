@@ -1,3 +1,7 @@
+import Accounts.Register;
+import Products.Food;
+import Products.Utility;
+
 public class Main {
 	public static final void main(String[] args) {
 		Shop myShop = new Shop("TheShop", "123 Solvd Ave.");
@@ -17,6 +21,7 @@ public class Main {
 		myShop.addProduct(new Food("Tomato", 100, 10));
 		myShop.addProduct(new Food("Bannana", 40, 10));
 		myShop.addProduct(new Food("Carrot", 20, 10));
+		myShop.addProduct(new Utility("Paper Towel", 200, 5));
 		
 		Customer you = new Customer();
 		you.visitShop(myShop);
@@ -25,14 +30,10 @@ public class Main {
 }
 
 /*
- * Here are some tasks for you: - Create a class hierarchy (10-15 classes).
- * Topic - Shop. For example simple app to store info about goods, employees,
- * customers, receipts etc. I want to be able to select goods that I want to
- * buy. - Create some kind of menu in console for interaction with your app:
- * adding, editing, deleting data. - Add 5 interfaces to the existing hierarchy.
- * - Use polymorphism with the abstract class and interface from the hierarchy.
- * - Use final class, method, variable. - Use a static block, method, variable.
- * 
- * Shop Employee - Manager Good - Food --Perishable - Giftcard Customer - Member
- * Receipt Register Savings
+ * Issues to fix:
+ * - Inventory is untracked.
+ * - Customer payment validity is untracked.
+ * - Customer can checkout without having chosen any items.
+ * - 
  */
+*/

@@ -1,3 +1,4 @@
+package Accounts;
 //Accounts are anything that money can be transferred to and from.
 public abstract class Account {
 	int funds = 0;

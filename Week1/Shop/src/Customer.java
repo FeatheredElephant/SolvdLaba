@@ -1,5 +1,8 @@
 import java.util.*;
 
+import Accounts.Account;
+import Products.Product;
+
 //Mistake to make customer an account. Each payment method of customer should be separate account.
 public class Customer extends Account {
 	private Shop currentShop;
