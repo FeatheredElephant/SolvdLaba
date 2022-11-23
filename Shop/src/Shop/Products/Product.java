@@ -1,4 +1,4 @@
-package Products;
+package Shop.Products;
 public abstract class Product {
 	private String name;
 	private int cost;

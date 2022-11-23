@@ -1,4 +1,5 @@
-import Accounts.Account;
+package Shop;
+import Shop.Accounts.Account;
 
 public class Employee {
 	int MINIMUMWAGE = Constants.getMINIMUMWAGE();
@@ -55,7 +56,7 @@ public class Employee {
 		this.title = title;
 	}
 
-	boolean transferFunds(Account giver, Account receiver, int amount) {
+	public boolean transferFunds(Account giver, Account receiver, int amount) {
 		if (giver.getFunds() >= amount) {
 			giver.withdrawFunds(amount);
 			receiver.depositFunds(amount);

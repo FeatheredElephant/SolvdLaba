@@ -1,26 +1,22 @@
+package Shop;
 import java.util.*;
 
-import Accounts.Account;
-import Products.Product;
+import Shop.Products.Product;
 
 //Mistake to make customer an account. Each payment method of customer should be separate account.
-public class Customer extends Account {
+public class Customer{
 	private Shop currentShop;
 	private ArrayList<Product> cart;
 
-	Customer() {
+	public Customer() {
 		cart = new ArrayList<Product>();
 	}
 
-	void addFunds(int amount) {
-		this.funds += amount;
-	}
-
-	ArrayList<Product> getCart() {
+	public ArrayList<Product> getCart() {
 		return cart;
 	}
 	
-	void selectProducts() {
+	public void selectProducts() {
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("What would you like to add to your cart?");

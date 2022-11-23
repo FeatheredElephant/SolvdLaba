@@ -1,7 +1,8 @@
+package Shop;
 import java.util.*;
 
-import Accounts.Register;
-import Products.Product;
+import Shop.Accounts.Register;
+import Shop.Products.Product;
 
 public class Shop {
 	private String name;

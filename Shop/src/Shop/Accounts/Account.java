@@ -1,8 +1,12 @@
-package Accounts;
+package Shop.Accounts;
+import Shop.Receipt;
+import IOManager;
 //Accounts are anything that money can be transferred to and from.
 public abstract class Account {
 	int funds = 0;
-
+	String paymentMethod;
+	Receipt[] accountHistory;
+	
 	public int getFunds() {
 		return funds;
 	}
@@ -24,5 +28,9 @@ public abstract class Account {
 		}
 
 		this.funds += amount;
+	}
+	
+	String viewHistory() {
+		
 	}
 }

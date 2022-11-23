@@ -1,11 +1,11 @@
-package Accounts;
+package Shop.Accounts;
 import java.util.*;
+import Shop.Employee;
+import Shop.Customer;
+import Shop.Receipt;
+import Shop.Products.Product;
+import Shop.Constants;
 
-import Constants;
-import Customer;
-import Employee;
-import Receipt;
-import Products.Product;
 
 public class Register extends Account {
 	private String id;

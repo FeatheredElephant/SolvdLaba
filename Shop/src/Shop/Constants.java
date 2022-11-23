@@ -1,3 +1,4 @@
+package Shop;
 
 public final class Constants {
 	private static final int MINIMUMWAGE = 1500;

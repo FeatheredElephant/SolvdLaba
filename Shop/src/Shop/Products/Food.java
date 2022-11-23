@@ -1,4 +1,4 @@
-package Products;
+package Shop.Products;
 public class Food extends Product {
 	// Expiration date
 	Food(String name, int cost, int stock) {
