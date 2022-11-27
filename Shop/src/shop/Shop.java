@@ -1,23 +1,26 @@
-package Shop;
+package shop;
+
 import java.util.*;
 
 import Shop.Accounts.Register;
 import Shop.Products.Product;
+import shop.other.IOManager;
 
 public class Shop {
 	private String name;
 	private String address;
 	private ArrayList<Employee> employees;
 	private ArrayList<Register> registers;
-	private ArrayList<Product> products;
+	private HashMap<Product, Integer> products;
 	private ArrayList<Receipt> receipts;
+	private ArrayList<Customer> customers;
 
 	Shop(String name, String address) {
 		this.name = name;
 		this.address = address;
 		employees = new ArrayList<>();
 		registers = new ArrayList<>();
-		products = new ArrayList<>();
+		products = new HashMap<Product,Integer>();
 		receipts = new ArrayList<>();
 	}
 
@@ -40,7 +43,7 @@ public class Shop {
 	public Employee getEmployee(int index) {
 		return employees.get(index);
 	}
-	
+
 	public void addEmployee(Employee employee) {
 		employees.add(employee);
 	}
@@ -52,7 +55,7 @@ public class Shop {
 	public Register getRegister(int index) {
 		return registers.get(index);
 	}
-	
+
 	public void addRegister(Register register) {
 		registers.add(register);
 	}
@@ -64,11 +67,11 @@ public class Shop {
 	public Product getProduct(int index) {
 		return products.get(index);
 	}
-	
+
 	public ArrayList<Product> getProducts() {
 		return products;
 	}
-	
+
 	public void addProduct(Product product) {
 		products.add(product);
 	}
@@ -82,28 +85,22 @@ public class Shop {
 	}
 
 	public void viewReceipts(Customer customer) {
-		// to be implemented
+		ArrayList<Receipt> customerReceipts;
+		for (Receipt r:receipts) {
+			if (r.)
+		}
 	}
-	
-	//Need to add try/catch for appropriate data type and int range
+
 	public void handleCheckout(Customer customer) {
-		// Select Register
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Please select from the available registers:");
-		int index = 0;
-		for (Register r : registers) {
-			if (r.isActive()) {
-				System.out.println((index + 1) + ". " + r.getId());
-			}
-			index++;
+		IOManager io = IOManager.getInstance();
+		ArrayList<Register> activeRegisters = new ArrayList<>();
+		if (activeRegisters.size() < 1) {
+			"Apologies. We have no active registers at this time. Please come back another time.";
+			//return to customer action select.
 		}
-		Register register = registers.get(scanner.nextInt() - 1);
-		if (!register.isActive()) {
-			System.out.println("You have selected an inactive register.");
-			this.handleCheckout(customer);
-			scanner.close();
-			return;
-		}
-		register.handleCheckout(customer);
+		for (Register r : registers)
+			if (r.isActive())
+				activeRegisters.add(r);
+		activeRegisters.get(io.selectFromArray("Please select a register to handle your purchase.", activeRegisters)).handleCheckout(customer);
 	}
 }

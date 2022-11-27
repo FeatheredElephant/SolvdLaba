@@ -1,13 +1,13 @@
-package Shop;
-import Shop.Accounts.Account;
+package shop;
+import shop.accounts.Account;
+import shop.other.Reference;
 
 public class Employee {
-	int MINIMUMWAGE = Constants.getMINIMUMWAGE();
-
-	String name;
-	String employeeId;
-	String title;
-	int hourlyWage;
+	private int MINIMUMWAGE = Reference.getMINIMUMWAGE();
+	private String name;
+	private String employeeId;
+	private String title;
+	private int hourlyWage;
 
 	public String getName() {
 		return name;
@@ -56,6 +56,14 @@ public class Employee {
 		this.title = title;
 	}
 
+	public void clockIn() {
+		
+	}
+	
+	public void clockOut() {
+		
+	}
+	
 	public boolean transferFunds(Account giver, Account receiver, int amount) {
 		if (giver.getFunds() >= amount) {
 			giver.withdrawFunds(amount);
