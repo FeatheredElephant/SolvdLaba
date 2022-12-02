@@ -18,17 +18,17 @@ public class IOManager {
 		return selectFromArray(prompt, "", options);
 	}
 	
-	//Displays array as a list and returns user's selected item.
+	//Displays array as a list and returns user's selected item or request to exit (null).
 	public <T> T selectFromArray(String prompt, String sampleItem, ArrayList<T> options) {
 		if (options.size() == 0) {
 			println("Error: Attempted to display empty array.");
 			return null;
 		}
-		println(prompt);
-		
+		println("\n" + prompt);
 		//Display list of options
 		if (sampleItem != "") println("#. " + sampleItem + "\n----------------------");
 		int index = 1;
+		println("0. Exit");
 		for(T t:options) {
 			println(index + ". " + t.toString());
 			index++;
@@ -42,6 +42,7 @@ public class IOManager {
 			if (0 <= response && response < options.size()) {
 				continueInput = false;
 			}
+			else if(response == -1) {return null;}
 			else { println("Please choose a valid option."); }
 		} while (continueInput);
 		
@@ -62,6 +63,19 @@ public class IOManager {
 		return (response == 1);
 	}
 	
+	//Request int between inclusive min and inclusive max.
+	public int requestIntInRange(int min, int max) {
+		boolean correctInput = false;
+		int input;
+		do{
+			input = requestInt();
+			if (min <= input && input <= max) correctInput = true;
+			else println("Incorrect input: Please make sure your input is in range.");
+		} while (!correctInput);
+		
+		return input;
+	}
+	
 	//Guarantees input is an integer.
 	public int requestInt() {
 		boolean correctInput = false;
@@ -80,7 +94,13 @@ public class IOManager {
 		return input;
 	}
 	
+	//gets String from user
+	public String requestString() {
+		String input = scanner.next();
+		return input;
+	}
+	
 	public <T> void println(T output){
-		System.out.println(output);
+		System.out.print(output + "\n");
 	}
 }

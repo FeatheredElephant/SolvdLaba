@@ -1,13 +1,15 @@
-package shop.accounts;
+package shop.finance;
+import java.util.Objects;
+
 import shop.other.IOManager;
 //Accounts are anything that money can be transferred to and from.
-public abstract class Account {
-	private int funds;
+public abstract class FinancialAccount implements IGetPaid, IPay{
 	private String id;
+	private int funds;
 	
-	public Account(String id){
-		funds = 0;
+	FinancialAccount(String id){
 		this.id = id;
+		funds = 0;
 	}
 	
 	public int getFunds() {
@@ -34,5 +36,27 @@ public abstract class Account {
 			return;
 		}
 		this.funds += amount;
+	}
+
+	@Override
+	public String toString() {
+		return "Account [id=" + id + ", funds=" + funds + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FinancialAccount other = (FinancialAccount) obj;
+		return Objects.equals(id, other.id);
 	}
 }

@@ -1,4 +1,4 @@
-package shop.accounts;
+package shop.finance;
 import java.util.*;
 
 import shop.other.IOManager;
@@ -9,7 +9,7 @@ import shop.Receipt;
 import shop.products.Product;
 
 
-public class Register extends Account {
+public class Register extends FinancialAccount{
 	private Employee cashier;
 
 	public Register(String id) {
@@ -24,7 +24,18 @@ public class Register extends Account {
 		this.cashier = employee;
 	}
 
-	public Receipt handleCheckout(Customer customer) {
+	public Receipt handleCheckout(Customer customer, String paymentMethod) {
+		/*
+		 * 1) Calculate products -- Done
+		 * 2) Request payment
+		 * 3) Verify payment
+		 * 4) Request transfer of funds 
+		 * 5) Create, Save, & Print receipt
+		 */
+		
+		int totalCost = calculateCost(customer.getCart());
+		
+		
 		return null;
 	}
 	
@@ -32,10 +43,10 @@ public class Register extends Account {
 		return IOManager.getInstance().selectFromArray("Please select from the following payment methods:", (ArrayList<String>) Arrays.asList(Reference.getPAYMENTMETHODS()));
 	}
 
-	int calculateCost(ArrayList<Product> selectedProducts) {
+	int calculateCost(ArrayList<Product> cart) {
 		int totalCost = 0;
-		for (Product p : selectedProducts) {
-			totalCost += p.getCost();
+		for (Product p : cart) {
+			totalCost += p.getCurrentCost();
 		}
 		return totalCost;
 	}
@@ -53,4 +64,5 @@ public class Register extends Account {
 	public static String sampleToString() {
 		return "RegisterId serviced by CashierName";
 	}
+	
 }

@@ -3,42 +3,46 @@ package shop.products;
 import java.util.Objects;
 
 public class Product {
-	private String name;
-	private int cost;
-
-	public Product(String name, int cost) {
-		this.name = name;
-		this.cost = cost;
+	private ProductType type;
+	private String id;
+	private String supplier;
+	
+	public Product(ProductType type, String id){
+		this.type = type;
+		this.id = id;
+		this.supplier = "";
 	}
-
+	
+	public Product(ProductType type, String id, String supplier){
+		this.type = type;
+		this.id = id;
+		this.supplier = supplier;
+	}
+	
+	public ProductType getType() {
+		return type;
+	}
+	
 	public String getName() {
-		return name;
+		return type.getName();
 	}
-	public void setName(String name) {
-		this.name = name;
+	
+	public int getCurrentCost() {
+		return type.getCost();
 	}
-
-	public int getCost() {
-		return cost;
-	}
-	public void setCost(int cost) {
-		if (cost > 0)
-			this.cost = cost;
+	
+	public int getCurrentStock() {
+		return type.getStock().size();
 	}
 
 	@Override
 	public String toString() {
-		return (name + ": " + cost);
-	}
-	
-	public static String sampleToString() {
-		
-		return "Name: Cost";
+		return type.getName() + " " + id;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(name);
+		return Objects.hash(id, supplier, type);
 	}
 
 	@Override
@@ -50,6 +54,7 @@ public class Product {
 		if (getClass() != obj.getClass())
 			return false;
 		Product other = (Product) obj;
-		return Objects.equals(name, other.name);
+		return Objects.equals(id, other.id) && Objects.equals(supplier, other.supplier)
+				&& Objects.equals(type, other.type);
 	}
 }

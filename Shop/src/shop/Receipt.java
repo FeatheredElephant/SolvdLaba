@@ -1,7 +1,7 @@
 package shop;
 import java.util.ArrayList;
 
-import shop.accounts.*;
+import shop.finance.*;
 import shop.products.*;
 
 public class Receipt {
@@ -21,8 +21,7 @@ public class Receipt {
 	
 	@Override
 	public String toString() {
-		String s= "";
-		s = "Total Cost: " + fundsTransfered + "\n";
+		String s = "Total Cost: " + fundsTransfered + "\n";
 		for (Product p: purchasedProducts) {
 			s += " " + p.toString() + "\n";
 		}
