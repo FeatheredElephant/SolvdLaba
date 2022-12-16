@@ -21,6 +21,6 @@ public class Main {
 		
 		WordCounter w = new WordCounter();
 		System.out.println(System.getProperty("user.dir"));
-		w.countWords("./src/main/inputTestFile.txt");
+		w.countWords("./src/main/resources/inputTestFile.txt", "./src/main/resources");
 	}
 }

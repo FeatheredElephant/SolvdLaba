@@ -78,3 +78,28 @@ hi my name is paul.
 
 2022-12-16 10:08:27,531 DEBUG a.IOManager [main] Output string: [hi, [who}goes./?there?, name, is, my, word x 3, paul.]
 
+2022-12-16 11:56:59,582 DEBUG a.IOManager [main] Imported string: word word word
+hi my name is paul.
+[Who}Goes./?There?
+
+
+2022-12-16 11:56:59,597 ERROR a.IOManager [main] java.io.IOException: No such file or directory
+2022-12-16 12:00:18,183 DEBUG a.IOManager [main] Imported string: word word word
+hi my name is paul.
+[Who}Goes./?There?
+
+
+2022-12-16 12:00:18,197 ERROR a.IOManager [main] java.io.IOException: No such file or directory
+2022-12-16 12:01:15,050 DEBUG a.IOManager [main] Imported string: word word word
+hi my name is paul.
+[Who}Goes./?There?
+
+
+2022-12-16 12:01:15,063 ERROR a.IOManager [main] java.io.IOException: No such file or directory
+2022-12-16 12:03:23,739 DEBUG a.IOManager [main] Imported string: word word word
+hi my name is paul.
+[Who}Goes./?There?
+
+
+2022-12-16 12:03:23,752 DEBUG a.IOManager [main] Output string: [hi, [who}goes./?there?, name, is, my, word x 3, paul.]
+

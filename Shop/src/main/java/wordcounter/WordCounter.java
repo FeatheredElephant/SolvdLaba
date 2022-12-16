@@ -18,13 +18,12 @@ public class WordCounter {
 		set = HashMultiset.create();
 	}
 	
-	public void countWords(String qualifiedName){
+	public void countWords(String SourceFile, String OutputFileLocation){
 		
+		File file = new File(SourceFile);
 		String input;
-		File file = new File(qualifiedName);
 		
 		try {
-			file.createNewFile();
 			input = FileUtils.readFileToString(file, (String)null);
 			IOManager.getInstance().println("Imported string: " + input);
 		} catch (IOException e) {
@@ -41,7 +40,7 @@ public class WordCounter {
 			set.add(tokenizer.next());
 		}
 		try {
-			file = new File("./src/main/wordcount.txt");
+			file = new File(OutputFileLocation + "/wordcount.txt");
 			file.createNewFile();
 			IOManager.getInstance().println("Output string: " + set.toString());
 			FileUtils.writeStringToFile(file, set.toString(), (String)null);
