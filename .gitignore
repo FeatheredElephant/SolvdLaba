@@ -2,4 +2,5 @@
 /Shop/logs
 /Shop/.classpath
 /Shop/.project
+/Shop/src/main/resources/wordcount.txt
 /bin/
