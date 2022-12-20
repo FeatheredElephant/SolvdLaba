@@ -1,5 +1,6 @@
 package app;
 
+import LambdaTesting.TestLambda;
 import app.products.Product;
 import app.products.ProductType;
 import wordcounter.WordCounter;
@@ -19,8 +20,7 @@ public class Main {
 		myShop.openShopConsole();
 		*/
 		
-		WordCounter w = new WordCounter();
-		System.out.println(System.getProperty("user.dir"));
-		w.countWords("./src/main/resources/inputTestFile.txt", "./src/main/resources");
+		TestLambda t = new TestLambda();
+		t.display();
 	}
 }

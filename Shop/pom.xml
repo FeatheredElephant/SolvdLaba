@@ -46,6 +46,7 @@
 				</excludes>
 			</resource>
 		</resources>
+		
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -55,12 +56,14 @@
 					<release>17</release>
 				</configuration>
 			</plugin>
+			
 			<plugin>
-				<!-- Build an executable JAR -->
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>3.1.0</version>
+				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
@@ -68,9 +71,18 @@
 						</manifest>
 					</archive>
 				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
+	
 	<distributionManagement>
 		<repository>
 			<id>Shop1</id>

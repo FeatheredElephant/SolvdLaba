@@ -30,7 +30,7 @@ public class IOManager {
 			throws EmptyArrayListException, HandleExitRequestException {
 		return selectFromArray(prompt, "", options);
 	}
-
+	
 	// Displays array as a list and returns user's selected item or request to exit
 	// (null).
 	public <T> T selectFromArray(String prompt, String sampleItem, ArrayList<T> options)

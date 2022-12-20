@@ -5,14 +5,13 @@ import java.util.Objects;
 import app.finance.FinancialAccount;
 
 public class Employee {
-	private int MINIMUMWAGE = Reference.getMINIMUMWAGE();
+	private static int MINIMUMWAGE = 1500;
 	private String name;
 	private String employeeId;
 	private String title;
 	private String accountPassword;
 	private int hourlyWage;
 	private boolean clockedIn;
-
 	// Constructors---------------------------------------------------------------------------------------------------
 
 	void initialize(String name, String employeeId, int hourlyWage, String password) {

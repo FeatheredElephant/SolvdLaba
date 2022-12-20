@@ -1,29 +1,24 @@
 package app.products;
 
 import java.util.Objects;
-
-import app.Reference;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Random;
 
 public class Product {
 	private ProductType type;
 	private String id;
 	private String supplier;
+	private static AtomicInteger baseId;
 	
 	public Product(ProductType type) {
 		this.type = type;
-		this.id = "default " + Reference.getNewId();
+		generateNewId();
 		this.supplier = "";
 	}
 	
-	public Product(ProductType type, String id){
+	public Product(ProductType type, String supplier){
 		this.type = type;
-		this.id = id;
-		this.supplier = "";
-	}
-	
-	public Product(ProductType type, String id, String supplier){
-		this.type = type;
-		this.id = id;
+		generateNewId();
 		this.supplier = supplier;
 	}
 	
@@ -37,6 +32,11 @@ public class Product {
 	
 	public String getId() {
 		return id;
+	}
+	
+	public void generateNewId() {
+		Random r = new Random();
+		id = "" + baseId.addAndGet(r.nextInt(100));
 	}
 
 	@Override
