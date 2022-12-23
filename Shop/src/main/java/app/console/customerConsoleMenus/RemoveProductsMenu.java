@@ -29,5 +29,4 @@ public class RemoveProductsMenu extends CustomerMenu{
 	public String toString() {
 		return "Remove Products from Cart";
 	}
-	
 }

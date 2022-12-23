@@ -1,13 +1,15 @@
 package app.finance;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import app.Employee;
 import app.IOManager;
-import app.Reference;
 import app.exceptions.EmptyArrayListException;
 import app.exceptions.HandleExitRequestException;
 import app.products.Product;
+import app.Constants.*;
 
 
 public class Register extends FinancialAccount{
@@ -25,13 +27,13 @@ public class Register extends FinancialAccount{
 		this.cashier = employee;
 	}
 	
-	String requestPaymentMethod() {
+	PaymentMethods requestPaymentMethod() {
 		try {
-			return IOManager.getInstance().selectFromArray("Please select from the following payment methods:", (ArrayList<String>) Arrays.asList(Reference.getPAYMENTMETHODS()));
+			return IOManager.getInstance().selectFromArray("Please select from the following payment methods:", new ArrayList<PaymentMethods>(Arrays.asList(PaymentMethods.values())));
 		} catch (EmptyArrayListException e) {
 			IOManager.getInstance().reportError("Error: " + e);
 		} catch (HandleExitRequestException e) {
-			
+			return null;
 		}
 		return null;
 	}

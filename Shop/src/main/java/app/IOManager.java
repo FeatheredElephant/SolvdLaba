@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
@@ -43,15 +44,21 @@ public class IOManager {
 		// Display list of options
 		if (sampleItem != "")
 			println("#. " + sampleItem + "\n----------------------");
-		int itemCount = 1;
+		AtomicInteger itemCount = new AtomicInteger(1);
 		println("0. Exit");
-		for (T t : options) {
-			println(itemCount + ". " + t.toString());
-			itemCount++;
-		}
+		
+		options.stream().forEachOrdered((option) -> {
+			println(itemCount.get() + ". " + option.toString());
+			itemCount.getAndIncrement();
+		});
 		int response = requestIntInRange(0, options.size());
 		if (response == 0) throw new HandleExitRequestException("User requesting exit.");
 		return options.get(response - 1);
+	}
+	
+	public <K,V> K selectFromHashMap(String prompt, HashMap<K,V> options) 
+			throws EmptyHashMapException, HandleExitRequestException {
+		return selectFromHashMap(prompt, "", options);
 	}
 	
 	public <K,V> K selectFromHashMap(String prompt, String sampleItem, HashMap<K,V> options) 
@@ -65,14 +72,14 @@ public class IOManager {
 			println("#. " + sampleItem + "\n----------------------");
 		
 		println("0. Exit");
-		int itemCount = 1;
+		AtomicInteger itemCount = new AtomicInteger(1);
 		ArrayList<K> keys = new ArrayList<>(options.keySet());
-		for (K key:keys) {
-			println(itemCount + ". " + key.toString() + " " + options.get(key).toString());
-			itemCount++;
-		}
+		keys.stream().forEachOrdered(key -> {
+			println(itemCount.get() + ". " + key.toString());
+			itemCount.getAndIncrement();
+		});
 		
-		int response = requestIntInRange(0, options.size());
+		int response = requestIntInRange(0, keys.size());
 		if (response == 0) throw new HandleExitRequestException("User requesting exit.");
 		return keys.get(response - 1);
 	}

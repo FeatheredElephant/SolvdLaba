@@ -8,8 +8,8 @@ public class Product {
 	private ProductType type;
 	private String id;
 	private String supplier;
-	private static AtomicInteger baseId;
-	
+	private static AtomicInteger baseId = new AtomicInteger(1);
+	 
 	public Product(ProductType type) {
 		this.type = type;
 		generateNewId();

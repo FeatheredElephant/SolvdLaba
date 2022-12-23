@@ -1,6 +1,7 @@
 package app.products;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 import app.exceptions.RequestFromEmptyException;
@@ -21,21 +22,20 @@ public class Inventory {
 		return new ArrayList<ProductType>(inventory.keySet());
 	}
 	
-	public ProductType getProductType(String name) {
-		Set<ProductType> types = inventory.keySet();
-		for (ProductType type: types) {
-			if (type.getName().equalsIgnoreCase(name)) return type;
-		}
-		//Exception: ProductType not found.
-		return null;
+	public ProductType getProductType(String name) throws NoSuchElementException{
+		var e = inventory.entrySet().stream()
+			.filter(entry -> entry.getKey().getName().equalsIgnoreCase(name))
+			.findAny()
+			.get();
+		return e.getKey();
 	}
 	
 	public void addProduct(ProductType type, Product product) {
 		if (!inventory.containsKey(type)) {
 			inventory.put(type, new ProductStack());
 		}
-		ProductStack products = inventory.get(type);
-		if (products.search(product) == -1) products.push(product);
+		ProductStack productStack = inventory.get(type);
+		if (productStack.search(product) == -1) productStack.push(product);
 	}
 	
 	public Product popProduct(ProductType type) throws RequestFromEmptyException{

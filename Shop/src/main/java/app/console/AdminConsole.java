@@ -31,7 +31,6 @@ public class AdminConsole implements ILogin {
 		} catch (HandleExitRequestException e) {
 			return;
 		}
-		
 		option.displayMenu();
 		displayMenu();
 	}

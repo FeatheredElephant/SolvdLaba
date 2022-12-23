@@ -1,10 +1,10 @@
 package app.console.adminConsoleMenus;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 import app.Shop;
-import app.exceptions.EmptyArrayListException;
-import app.exceptions.HandleExitRequestException;
+import app.products.ProductType;
 
 public class ProductManagerMenu extends AdminMenu{
 
@@ -13,21 +13,39 @@ public class ProductManagerMenu extends AdminMenu{
 	}
 	
 	public void displayMenu() {
-		ArrayList<AdminMenu> options = new ArrayList<>();
-		options.add(new addProductMenu(getShop()));
-		options.add(new removeProductMenu(getShop()));
-		options.add(new editProductTypeMenu(getShop()));
+		//Displays currently existing products
+		ArrayList<ProductType> productTypes = getShop().inventory.getAllProductTypes();
+		io.displayList(productTypes);
 		
-		AdminMenu option = null;
+		//Requests from user name of product to edit
+		io.println("Name of product to edit? (0 to Exit)");
+		String name = io.requestString();
+		
+		if (name.equals("0")) return;
+		
+		ProductType pt;
 		try {
-			option = io.selectFromArray("Please select from the following options:", options);
-		} catch (EmptyArrayListException e) {
-			io.reportError("Error: " + e);
-		} catch (HandleExitRequestException e) {
-			return;
+			//Looks for named product in inventory.
+			pt = productTypes.stream()
+					.filter((type) -> type.getName().equalsIgnoreCase(name))
+					.findAny()
+					.get();
+		} catch (NoSuchElementException e) {
+			//If productType not in inventory, asks if you would like to add a new productType.
+			if (io.yesOrNo("Name not found in list. Would you like to create a new ProductType?")) {
+				pt = createProductType(name);
+			}
+			else return;
 		}
-		
-		option.displayMenu();
+		EditProductMenu epm = new EditProductMenu(getShop(), pt);
+		epm.displayMenu();
 		displayMenu();
+	}
+	
+	//Creates new ProductType
+	ProductType createProductType(String name) {
+		io.println("Cost? (cents)");
+		int cost = io.requestInt();
+		return new ProductType(name, cost);
 	}
 }
