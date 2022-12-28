@@ -19,5 +19,6 @@ public class Main {
 		//myShop.openShopConsole();
 		IOManager.getInstance().println(ObjectDump.dump(apple, 0));
 		IOManager.getInstance().println(ObjectDump.dump(e, 0));
+		
 	}
 }

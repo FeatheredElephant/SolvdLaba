@@ -9,7 +9,7 @@ import app.console.adminConsoleMenus.ProductManagerMenu;
 import app.exceptions.EmptyArrayListException;
 import app.exceptions.HandleExitRequestException;
 
-public class AdminConsole implements ILogin {
+public class AdminConsole implements ILogin{
 
 	Shop shop;
 	
@@ -17,7 +17,7 @@ public class AdminConsole implements ILogin {
 		this.shop = shop;
 		displayMenu();
 	}
-
+	
 	public void displayMenu() {
 		ArrayList<AdminMenu> options = new ArrayList<>();
 		options.add(new ProductManagerMenu(shop));
@@ -40,4 +40,6 @@ public class AdminConsole implements ILogin {
 	public String toString() {
 		return "Admin Console";
 	}
+
+
 }
