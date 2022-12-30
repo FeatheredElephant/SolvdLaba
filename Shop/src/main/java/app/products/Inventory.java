@@ -3,12 +3,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.NoSuchElementException;
 import java.util.Set;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
+import app.IOManager;
 import app.exceptions.RequestFromEmptyException;
 
-public class Inventory {
+public class Inventory{
 
 	private HashMap<ProductType, ProductStack> inventory;
+	ExecutorService executor = Executors.newCachedThreadPool();
 	
 	public Inventory() {
 		inventory = new HashMap<>();
@@ -23,7 +29,7 @@ public class Inventory {
 	}
 	
 	public ProductType getProductType(String name) throws NoSuchElementException{
-		var e = inventory.entrySet().stream()
+		var e = inventory.entrySet().parallelStream()
 			.filter(entry -> entry.getKey().getName().equalsIgnoreCase(name))
 			.findAny()
 			.get();
@@ -31,17 +37,33 @@ public class Inventory {
 	}
 	
 	public void addProduct(ProductType type, Product product) {
-		if (!inventory.containsKey(type)) {
-			inventory.put(type, new ProductStack());
-		}
-		ProductStack productStack = inventory.get(type);
-		if (productStack.search(product) == -1) productStack.push(product);
+		executor.execute(() -> {
+			if (!inventory.containsKey(type)) {
+				inventory.put(type, new ProductStack());
+			}
+			ProductStack productStack = inventory.get(type);
+			if (productStack.search(product) == -1) productStack.push(product);
+		});
 	}
 	
 	public Product popProduct(ProductType type) throws RequestFromEmptyException{
-		ProductStack products = inventory.get(type);
-		if (products.empty()) throw new RequestFromEmptyException("Attempting to pull from empty ProductStack");
-		return products.pop();
+		Future<Product> poppedProduct = executor.submit(() -> {
+			ProductStack products = inventory.get(type);
+			if (products.empty()) throw new RequestFromEmptyException("Attempted to pull from empty ProductStack");
+			return products.pop();
+		});
+		
+		while(true) {
+			try {
+				return poppedProduct.get();
+			} catch (InterruptedException e) {
+				IOManager.getInstance().reportError(e);
+				e.printStackTrace();
+			} catch (ExecutionException e) {
+				IOManager.getInstance().reportError(e);
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public int getStockSize(ProductType type) {

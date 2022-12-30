@@ -36,6 +36,12 @@
 			<artifactId>guava</artifactId>
 			<version>31.1-jre</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.riversun/java-promise -->
+		<dependency>
+			<groupId>org.riversun</groupId>
+			<artifactId>java-promise</artifactId>
+			<version>1.1.0</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<resources>
@@ -46,7 +52,6 @@
 				</excludes>
 			</resource>
 		</resources>
-		
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -56,7 +61,6 @@
 					<release>17</release>
 				</configuration>
 			</plugin>
-			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
@@ -82,7 +86,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	
 	<distributionManagement>
 		<repository>
 			<id>Shop1</id>

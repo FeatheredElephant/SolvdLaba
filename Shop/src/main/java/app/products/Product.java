@@ -36,7 +36,7 @@ public class Product {
 	
 	public void generateNewId() {
 		Random r = new Random();
-		id = "" + baseId.addAndGet(r.nextInt(100));
+		id = "" + baseId.addAndGet(r.nextInt(99) + 1);
 	}
 
 	@Override

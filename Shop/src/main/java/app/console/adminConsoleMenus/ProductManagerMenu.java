@@ -26,7 +26,7 @@ public class ProductManagerMenu extends AdminMenu{
 		ProductType pt;
 		try {
 			//Looks for named product in inventory.
-			pt = productTypes.stream()
+			pt = productTypes.parallelStream()
 					.filter((type) -> type.getName().equalsIgnoreCase(name))
 					.findAny()
 					.get();
