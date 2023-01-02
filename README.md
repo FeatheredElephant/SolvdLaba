@@ -4,8 +4,7 @@
 
 SolvdLaba student project used for learning and practicing Java basics.
 
-## Manage a store!
-## Log in as
+# Store Management CLI
 ### Admin
 * Manage Products
 * Manage Employees
