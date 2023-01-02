@@ -4,14 +4,14 @@
 
 SolvdLaba student project used for learning and practicing Java basics.
 
-Manage a store!
-Log in as
-# Admin
+##Manage a store!
+##Log in as
+### Admin
 * Manage Products
 * Manage Employees
 * Automatically maintain store records
-====Employee====
+### Employee
 * Clock in/out
 * Report Issues
-====Customer====
+### Customer
 * Purchase/Return Products
