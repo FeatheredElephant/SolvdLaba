@@ -6,12 +6,12 @@ SolvdLaba student project used for learning and practicing Java basics.
 
 Manage a store!
 Log in as
-##Admin
-- Manage Products
-- Manage Employees
-- Automatically maintain store records
-##Employee
-- Clock in/out
-- Report Issues
-##Customer
-- Purchase/Return Products
+====Admin====
+* Manage Products
+* Manage Employees
+* Automatically maintain store records
+====Employee====
+* Clock in/out
+* Report Issues
+====Customer====
+* Purchase/Return Products
