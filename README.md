@@ -6,7 +6,7 @@ SolvdLaba student project used for learning and practicing Java basics.
 
 Manage a store!
 Log in as
-====Admin====
+# Admin
 * Manage Products
 * Manage Employees
 * Automatically maintain store records
