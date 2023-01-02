@@ -1,1 +1,1 @@
-![Solvd Laba_-_Shop](https://user-images.githubusercontent.com/48656131/210275590-c8ad7eb7-88b3-4508-9ca4-1b1b0dc3628c.png)
+![solvdlaba-shop-logo](https://user-images.githubusercontent.com/48656131/210275880-ee274336-36bf-4f3f-83a8-ee6c5204ef12.png)
