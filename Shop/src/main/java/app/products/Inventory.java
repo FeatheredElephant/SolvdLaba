@@ -36,11 +36,14 @@ public class Inventory{
 		return e.getKey();
 	}
 	
+	public void addNewProductType(ProductType type) {
+		if (inventory.containsKey(type)) return;
+		inventory.put(type, new ProductStack());
+	}
+	
 	public void addProduct(ProductType type, Product product) {
 		executor.execute(() -> {
-			if (!inventory.containsKey(type)) {
-				inventory.put(type, new ProductStack());
-			}
+			addNewProductType(type);
 			ProductStack productStack = inventory.get(type);
 			if (productStack.search(product) == -1) productStack.push(product);
 		});

@@ -55,7 +55,7 @@ public class EditProductMenu extends AdminMenu {
 	//Increases stock of product
 	void addProductStock(ProductType productType) {
 		io.println("amount to add to stock?");
-		int stockIncrease = io.requestIntInRange(1, 10000);
+		int stockIncrease = io.requestIntInRange(0, 10000);
 		Inventory inventory = getShop().inventory;
 		for (int i = 0; i < stockIncrease; i++) {
 			inventory.addProduct(productType, new Product(productType));
