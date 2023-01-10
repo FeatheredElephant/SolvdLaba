@@ -34,6 +34,7 @@ public class ProductManagerMenu extends AdminMenu{
 			//If productType not in inventory, asks if you would like to add a new productType.
 			if (io.yesOrNo("Name not found in list. Would you like to create a new ProductType?")) {
 				pt = createProductType(name);
+				getShop().inventory.addNewProductType(pt);
 			}
 			else return;
 		}
