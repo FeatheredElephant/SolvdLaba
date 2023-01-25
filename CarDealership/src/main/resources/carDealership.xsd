@@ -1,0 +1,261 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="carDealership">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="users">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="user" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="userId"/>
+                    <xs:element type="xs:string" name="name"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="payments">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="payment" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="paymentId"/>
+                    <xs:element type="xs:float" name="amount"/>
+                    <xs:element type="xs:int" name="userId"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="employees">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="employee" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="employeeId"/>
+                    <xs:element type="xs:float" name="wage"/>
+                    <xs:element type="xs:string" name="title"/>
+                    <xs:element type="xs:int" name="userId"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="customers">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="customer" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="customerId"/>
+                    <xs:element type="xs:int" name="userId"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vehicleSales">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="vehicleSale" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="saleId"/>
+                    <xs:element type="xs:int" name="customerId"/>
+                    <xs:element type="xs:int" name="vehicleId"/>
+                    <xs:element type="xs:string" name="discount"/>
+                    <xs:element type="xs:float" name="total"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="serviceProviders">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="serviceProvider" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="serviceProviderId"/>
+                    <xs:element type="xs:string" name="userId"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vehicleServices">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="vehicleService" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="serviceId"/>
+                    <xs:element type="xs:string" name="serviceProviderId"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vendors">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="vendor" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="vendorId"/>
+                    <xs:element type="xs:int" name="userId"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vehiclePurchases">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="vehiclePurchase" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="purchaseId"/>
+                    <xs:element type="xs:int" name="vehicleId"/>
+                    <xs:element type="xs:int" name="vendorId"/>
+                    <xs:element type="xs:float" name="cost"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vehiclePartPurchases">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="vehcilePartPurchase" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="vehiclePartPurchaseId"/>
+                    <xs:element type="xs:int" name="vendorId"/>
+                    <xs:element type="xs:int" name="partId"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vehicleParts">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="vehiclePart" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="partId"/>
+                    <xs:element type="xs:int" name="partTypeId"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="partTypes">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="partType" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="partTypeId"/>
+                    <xs:element type="xs:string" name="name"/>
+                    <xs:element type="xs:float" name="price"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vehicles">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="vehicle" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="vehicleId"/>
+                    <xs:element type="xs:short" name="year"/>
+                    <xs:element type="xs:int" name="modelId"/>
+                    <xs:element type="xs:int" name="colorId"/>
+                    <xs:element type="xs:float" name="price"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="colors">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="color" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="colorId"/>
+                    <xs:element type="xs:string" name="name"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="models">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="model" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="modelId"/>
+                    <xs:element type="xs:string" name="name"/>
+                    <xs:element type="xs:string" name="brand"/>
+                    <xs:element type="xs:int" name="vehicletypeId"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vehicleTypes">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="vehicleType" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="typeId"/>
+                    <xs:element type="xs:string" name="name"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="brands">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="brand" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="brandId"/>
+                    <xs:element type="xs:string" name="name"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
