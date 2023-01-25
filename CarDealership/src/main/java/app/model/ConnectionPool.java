@@ -1,4 +1,4 @@
-package app.dao;
+package app.model;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

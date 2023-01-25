@@ -1,7 +1,8 @@
-package app;
+package view;
 
-import app.dao.User;
-import app.dao.UserDAO;
+import app.IOManager;
+import app.model.dao.UserDAO;
+import app.model.domains.User;
 
 public class UserCRUDMenu {
 	IOManager io = IOManager.getInstance();
@@ -19,6 +20,7 @@ public class UserCRUDMenu {
 		int response = io.requestIntInRange(0, 5);
 		switch(response) {
 		case 0:
+			io.println("Goodbye.");
 			return;
 		case 1:
 			io.println("id?");

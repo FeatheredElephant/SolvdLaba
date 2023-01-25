@@ -1,5 +1,8 @@
 package app;
 
+import java.io.File;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -63,5 +66,11 @@ public class IOManager {
 	
 	public <T> void reportError(T output) {
 		logger.error(output);
+	}
+	
+	public File getFileFromResources(String fileName) throws URISyntaxException, IllegalArgumentException{
+			URL resource = getClass().getClassLoader().getResource(fileName);
+			if (resource == null) throw new IllegalArgumentException("File not found. " + fileName);
+			else return new File(resource.toURI());
 	}
 }

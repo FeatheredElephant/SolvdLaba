@@ -1,6 +1,8 @@
-package app.dao;
+package app.model.dao;
 
-public abstract class CarDealershipDAO {
+import app.model.ConnectionPool;
+
+public abstract class CarDealershipDAO{
 	private ConnectionPool connectionPool;
 
 	public CarDealershipDAO() {

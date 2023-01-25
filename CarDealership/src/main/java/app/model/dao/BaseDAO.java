@@ -1,4 +1,4 @@
-package app.dao;
+package app.model.dao;
 import java.util.Set;
 
 public interface BaseDAO<T>{	

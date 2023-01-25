@@ -1,20 +1,29 @@
-package app.dao;
+package app.model.domains;
 
 import java.util.Objects;
 
+import javax.xml.bind.annotation.XmlElement;
+
 public class User {
+
 	private Integer id;
+
 	private String name;
-	
-	public User(Integer id, String name){
+
+	public User(Integer id, String name) {
 		setId(id);
 		setName(name);
 	}
-	
+
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId() {
 		return id;
 	}
 
+	@XmlElement(name = "userId")
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -23,6 +32,7 @@ public class User {
 		return name;
 	}
 
+	@XmlElement(name = "name")
 	public void setName(String name) {
 		this.name = name;
 	}

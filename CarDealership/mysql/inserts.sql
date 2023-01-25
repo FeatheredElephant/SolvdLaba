@@ -1,109 +1,108 @@
-INSERT INTO car_dealership.person
+INSERT INTO car_dealership.person(name)
 VALUES 
-	(0, "Emma"),
-    (1, "Jake"),
-    (2, "Jake"),
-    (3, "Cliff"),
-    (4, "Maria"),
-    (5, "Ricky"),
-    (6, "Diana"),
-    (7, "Michael");
+	("Emma"),
+    ("Jake"),
+    ("Jake"),
+    ("Cliff"),
+    ("Maria"),
+    ("Ricky"),
+    ("Diana"),
+    ("Michael");
 
-
-INSERT INTO car_dealership.employee
+INSERT INTO car_dealership.employee(wage, title, person_id)
 VALUES
-	(0, 30.00, "Manager", 0),
-    (1, 20.00, "Salesman", 1);
+	(30.00, "Manager", 1),
+    (20.00, "Salesman", 2);
 
-INSERT INTO car_dealership.customer
+INSERT INTO car_dealership.customer(person_id)
 VALUES
-	(0, 2),
-    (1, 3);
+	(3),
+    (4);
 
-INSERT INTO car_dealership.service_provider
+INSERT INTO car_dealership.service_provider (person_id)
 VALUES
-	(0, 4),
-    (1, 5),
-    (2, 6);
+	(5),
+    (6),
+    (7);
 
-INSERT INTO car_dealership.vendor
+INSERT INTO car_dealership.vendor (person_id)
 VALUES
-	(0, 6),
-    (1, 7);
+	(7),
+    (8);
 
-INSERT INTO car_dealership.brand
+INSERT INTO car_dealership.brand (name)
 VALUES
-	(0, "Ford"),
-    (1, "Tesla"),
-    (2, "Subaru");
+	("Ford"),
+    ("Tesla"),
+    ("Subaru");
 
-INSERT INTO car_dealership.vehicle_type
+INSERT INTO car_dealership.vehicle_type (name)
 VALUES
-	(0, "Sedan"),
-    (1, "SUV"),
-    (2, "Truck");
+	("Sedan"),
+    ("SUV"),
+    ("Truck");
 
-INSERT INTO car_dealership.model
+INSERT INTO car_dealership.model (name, brand_id, vehicle_type)
 VALUES
-	(0, "Fiesta", 0, 0),
-    (1, "Explorer", 0, 1),
-	(2, "Ranger", 0, 2),
-    (3, "Model S", 1, 0),
-    (4, "Model X", 1, 1),
-    (6, "Impreza", 2, 0),
-    (7, "Outback", 2, 1);
+	("Fiesta", 1, 1),
+    ("Explorer", 1, 2),
+	("Ranger", 1, 3),
+    ("Model S", 2, 1),
+    ("Model X", 2, 2),
+    ("Impreza", 3, 1),
+    ("Outback", 3, 2);
 
-INSERT INTO car_dealership.color
+INSERT INTO car_dealership.color (name)
 VALUES
-	(0, "black"),
-    (1, "red"),
-    (2, "blue"),
-    (3, "green");
+	("black"),
+    ("red"),
+    ("blue"),
+    ("green");
 
-INSERT INTO car_dealership.vehicle
+INSERT INTO car_dealership.vehicle (year, model_id, color_id, price)
 VALUES
-	(0, 2018, 0, 3, 15000.00),
-    (1, 2020, 3, 1, 140000.00),
-    (2, 2016, 6, 3, 20000.00),
-    (3, 2020, 3, 0, 100000.00);
+	(2018, 1, 4, 15000.00),
+    (2020, 4, 2, 140000.00),
+    (2016, 7, 4, 20000.00),
+    (2020, 4, 1, 100000.00);
 
-INSERT INTO car_dealership.vehicle_purchase
+INSERT INTO car_dealership.vehicle_purchase (vehicle_id, vendor_id, cost)
 VALUES
-	(0, 2, 0, 15000.00),
-    (1, 0, 1, 14000.00),
-    (2, 1, 1, 130000.00),
-    (3, 3, 1, 90000.00);
+	(3, 1, 15000.00),
+    (1, 2, 14000.00),
+    (2, 2, 130000.00),
+    (4, 2, 90000.00);
 
-INSERT INTO car_dealership.vehicle_service
+INSERT INTO car_dealership.vehicle_service (service_provider_id, vehicle_id, service_cost, description)
 VALUES
-	(0, 0, 2, 1500.00, "auto body repair + repainted"),
-    (1, 0, 0, 200.00, "Tire alignment");
+	(1, 3, 1500.00, "auto body repair + repainted"),
+    (1, 1, 200.00, "Tire alignment");
 
-INSERT INTO car_dealership.vehicle_sale
+INSERT INTO car_dealership.vehicle_sale (customer_id, vehicle_id, discount, total)
 VALUES
-	(0, 0, 2, 200.00, 19800.00),
-    (1, 1, 3, 500.00, 99500.00);
+	(1, 3, 200.00, 19800.00),
+    (2, 4, 500.00, 99500.00);
 
-INSERT INTO car_dealership.part_type
+INSERT INTO car_dealership.part_type (name, price)
 VALUES
-	(0, "Battery", 60.00),
-    (1, "Tire", 100.00),
-    (2, "Bumper", 150.00);
+	("Battery", 60.00),
+    ("Tire", 100.00),
+    ("Bumper", 150.00);
 
-INSERT INTO car_dealership.vehicle_part
+INSERT INTO car_dealership.vehicle_part (part_type_id)
 VALUES
-	(0, 0),
-    (1, 2),
-    (2, 1);
+	(1),
+    (3),
+    (2);
 
-INSERT INTO car_dealership.vehicle_part_purchase
+INSERT INTO car_dealership.vehicle_part_purchase (vendor_id, part_id)
 VALUES
-	(0, 0, 0),
-    (1, 0, 0),
-    (2, 0, 2),
-    (3, 0, 1);
+	(1, 1),
+    (1, 1),
+    (1, 3),
+    (1, 2);
 
-INSERT INTO car_dealership.payment
+INSERT INTO car_dealership.payment (amount, person_id)
 VALUES
-	(0, 19000.00, 2),
-    (1, -370.00, 6);
+	(19000.00, 3),
+    (-370.00, 7);
