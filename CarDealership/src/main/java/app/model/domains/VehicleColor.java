@@ -13,7 +13,7 @@ public class VehicleColor {
 	}
 
 	public VehicleColor() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public int getColorId() {
@@ -33,11 +33,6 @@ public class VehicleColor {
 	}
 
 	@Override
-	public String toString() {
-		return "VehicleColor [colorId=" + colorId + ", name=" + name + "]";
-	}
-
-	@Override
 	public int hashCode() {
 		return Objects.hash(colorId);
 	}
@@ -52,5 +47,10 @@ public class VehicleColor {
 			return false;
 		VehicleColor other = (VehicleColor) obj;
 		return colorId == other.colorId;
+	}
+
+	@Override
+	public String toString() {
+		return "VehicleColor [colorId=" + colorId + ", name=" + name + "]";
 	}
 }

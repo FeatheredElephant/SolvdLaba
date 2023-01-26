@@ -13,6 +13,7 @@ public class Payment {
 		this.amount = amount;
 		this.personId = personId;
 	}
+
 	public Payment() {
 		// TODO Auto-generated constructor stub
 	}
