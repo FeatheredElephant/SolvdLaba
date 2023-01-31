@@ -7,15 +7,56 @@ public class VehicleModel {
 	String name;
 	int brandId;
 	int vehicleTypeId;
-	@Override
-	public String toString() {
-		return "VehicleModel [modelId=" + modelId + ", name=" + name + ", brandId=" + brandId + ", vehicleTypeId="
-				+ vehicleTypeId + "]";
+
+	public VehicleModel(int modelId, String name, int brandId, int vehicleTypeId) {
+		super();
+		this.modelId = modelId;
+		this.name = name;
+		this.brandId = brandId;
+		this.vehicleTypeId = vehicleTypeId;
 	}
+
+	public VehicleModel() {
+	
+	}
+
+	public int getModelId() {
+		return modelId;
+	}
+
+	public void setModelId(int modelId) {
+		this.modelId = modelId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getBrandId() {
+		return brandId;
+	}
+
+	public void setBrandId(int brandId) {
+		this.brandId = brandId;
+	}
+
+	public int getVehicleTypeId() {
+		return vehicleTypeId;
+	}
+
+	public void setVehicleTypeId(int vehicleTypeId) {
+		this.vehicleTypeId = vehicleTypeId;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(modelId);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -27,38 +68,10 @@ public class VehicleModel {
 		VehicleModel other = (VehicleModel) obj;
 		return modelId == other.modelId;
 	}
-	public int getModelId() {
-		return modelId;
-	}
-	public void setModelId(int modelId) {
-		this.modelId = modelId;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getBrandId() {
-		return brandId;
-	}
-	public void setBrandId(int brandId) {
-		this.brandId = brandId;
-	}
-	public int getVehicleTypeId() {
-		return vehicleTypeId;
-	}
-	public void setVehicleTypeId(int vehicleTypeId) {
-		this.vehicleTypeId = vehicleTypeId;
-	}
-	public VehicleModel(int modelId, String name, int brandId, int vehicleTypeId) {
-		super();
-		this.modelId = modelId;
-		this.name = name;
-		this.brandId = brandId;
-		this.vehicleTypeId = vehicleTypeId;
-	}
-	public VehicleModel() {
-		// TODO Auto-generated constructor stub
+
+	@Override
+	public String toString() {
+		return "VehicleModel [modelId=" + modelId + ", name=" + name + ", brandId=" + brandId + ", vehicleTypeId="
+				+ vehicleTypeId + "]";
 	}
 }

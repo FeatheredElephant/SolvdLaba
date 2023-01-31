@@ -13,7 +13,7 @@ public class VehicleBrand {
 	}
 
 	public VehicleBrand() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public int getBrandId() {

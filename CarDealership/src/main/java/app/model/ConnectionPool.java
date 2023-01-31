@@ -19,6 +19,8 @@ public class ConnectionPool {
 	private List<Connection> connectionPool;
 	private List<Connection> usedConnections = new ArrayList<>();
 	
+	private static IOManager io = IOManager.getInstance();
+	
 	public ConnectionPool(String propertiesFileName, int initPoolSize){
 		Properties props = null;
 		try {
@@ -51,7 +53,7 @@ public class ConnectionPool {
 			return c;
 		}
 		catch (IndexOutOfBoundsException e){
-			//report error
+			io.reportError(e);
 			return null;
 		}
 	}
@@ -86,7 +88,7 @@ public class ConnectionPool {
 			connection = DriverManager.getConnection(this.url, this.user, this.password);
 		}
 		catch (Exception e) {
-			IOManager.getInstance().println(e);
+			io.println(e);
 		}
 		return connection;
 	}

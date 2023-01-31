@@ -3,12 +3,15 @@ package app.model.domains;
 import java.util.List;
 import java.util.Objects;
 import javax.xml.bind.annotation.*;
+import com.fasterxml.jackson.annotation.*;
 
+//@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonRootName("carDealership")
 @XmlRootElement(name = "carDealership")
 public class CarDealership {
 
 	List<User> users;
-	
+
 	List<Employee> employees;
 
 	List<Customer> customers;
@@ -74,8 +77,9 @@ public class CarDealership {
 	public List<User> getUsers() {
 		return users;
 	}
-	
-	@XmlElementWrapper(name="users")
+
+	@JsonProperty("users")
+	@XmlElementWrapper(name = "users")
 	@XmlElement(name = "user")
 	public void setUsers(List<User> users) {
 		this.users = users;
@@ -85,7 +89,8 @@ public class CarDealership {
 		return employees;
 	}
 
-	@XmlElementWrapper(name="employees")
+	@JsonProperty("employees")
+	@XmlElementWrapper(name = "employees")
 	@XmlElement(name = "employee")
 	public void setEmployees(List<Employee> employees) {
 		this.employees = employees;
@@ -95,7 +100,8 @@ public class CarDealership {
 		return customers;
 	}
 
-	@XmlElementWrapper(name="customers")
+	@JsonProperty("customers")
+	@XmlElementWrapper(name = "customers")
 	@XmlElement(name = "customer")
 	public void setCustomers(List<Customer> customers) {
 		this.customers = customers;
@@ -105,7 +111,8 @@ public class CarDealership {
 		return vendors;
 	}
 
-	@XmlElementWrapper(name="vendors")
+	@JsonProperty("vendors")
+	@XmlElementWrapper(name = "vendors")
 	@XmlElement(name = "vendor")
 	public void setVendors(List<Vendor> vendors) {
 		this.vendors = vendors;
@@ -115,7 +122,8 @@ public class CarDealership {
 		return serviceProviders;
 	}
 
-	@XmlElementWrapper(name="serviceProviders")
+	@JsonProperty("serviceproviders")
+	@XmlElementWrapper(name = "serviceProviders")
 	@XmlElement(name = "serviceProvider")
 	public void setServiceProviders(List<ServiceProvider> serviceProviders) {
 		this.serviceProviders = serviceProviders;
@@ -125,7 +133,8 @@ public class CarDealership {
 		return payments;
 	}
 
-	@XmlElementWrapper(name="payments")
+	@JsonProperty("payments")
+	@XmlElementWrapper(name = "payments")
 	@XmlElement(name = "payment")
 	public void setPayments(List<Payment> payments) {
 		this.payments = payments;
@@ -135,7 +144,8 @@ public class CarDealership {
 		return vehicles;
 	}
 
-	@XmlElementWrapper(name="vehicles")
+	@JsonProperty("vehicles")
+	@XmlElementWrapper(name = "vehicles")
 	@XmlElement(name = "vehicle")
 	public void setVehicles(List<Vehicle> vehicles) {
 		this.vehicles = vehicles;
@@ -145,7 +155,8 @@ public class CarDealership {
 		return vehicleColors;
 	}
 
-	@XmlElementWrapper(name="vehicleColors")
+	@JsonProperty("vehicleColors")
+	@XmlElementWrapper(name = "vehicleColors")
 	@XmlElement(name = "vehicleColor")
 	public void setVehicleColors(List<VehicleColor> vehicleColors) {
 		this.vehicleColors = vehicleColors;
@@ -155,7 +166,8 @@ public class CarDealership {
 		return vehicleModels;
 	}
 
-	@XmlElementWrapper(name="vehicleModels")
+	@JsonProperty("vehicleModels")
+	@XmlElementWrapper(name = "vehicleModels")
 	@XmlElement(name = "vehicleModel")
 	public void setVehicleModels(List<VehicleModel> vehicleModels) {
 		this.vehicleModels = vehicleModels;
@@ -165,7 +177,8 @@ public class CarDealership {
 		return vehicleTypes;
 	}
 
-	@XmlElementWrapper(name="vehicleTypes")
+	@JsonProperty("vehicleTypes")
+	@XmlElementWrapper(name = "vehicleTypes")
 	@XmlElement(name = "vehicleType")
 	public void setVehicleTypes(List<VehicleType> vehicleTypes) {
 		this.vehicleTypes = vehicleTypes;
@@ -175,7 +188,8 @@ public class CarDealership {
 		return vehicleBrands;
 	}
 
-	@XmlElementWrapper(name="vehicleBrands")
+	@JsonProperty("vehicleBrands")
+	@XmlElementWrapper(name = "vehicleBrands")
 	@XmlElement(name = "vehicleBrand")
 	public void setVehicleBrands(List<VehicleBrand> vehicleBrands) {
 		this.vehicleBrands = vehicleBrands;
@@ -185,7 +199,8 @@ public class CarDealership {
 		return vehicleSales;
 	}
 
-	@XmlElementWrapper(name="vehicleSales")
+	@JsonProperty("vehicleSales")
+	@XmlElementWrapper(name = "vehicleSales")
 	@XmlElement(name = "vehicleSale")
 	public void setVehicleSales(List<VehicleSale> vehicleSales) {
 		this.vehicleSales = vehicleSales;
@@ -195,17 +210,19 @@ public class CarDealership {
 		return vehicleServices;
 	}
 
-	@XmlElementWrapper(name="vehicleServices")
+	@JsonProperty("vehicleServices")
+	@XmlElementWrapper(name = "vehicleServices")
 	@XmlElement(name = "vehicleService")
 	public void setVehicleServices(List<VehicleService> vehicleServices) {
 		this.vehicleServices = vehicleServices;
 	}
-	
+
 	public List<VehiclePurchase> getVehiclePurchases() {
 		return vehiclePurchases;
 	}
 
-	@XmlElementWrapper(name="vehiclePurchases")
+	@JsonProperty("vehiclePurchases")
+	@XmlElementWrapper(name = "vehiclePurchases")
 	@XmlElement(name = "vehiclePurchase")
 	public void setVehiclePurchases(List<VehiclePurchase> vehiclePurchases) {
 		this.vehiclePurchases = vehiclePurchases;
@@ -215,7 +232,8 @@ public class CarDealership {
 		return partPurchases;
 	}
 
-	@XmlElementWrapper(name="partPurchases")
+	@JsonProperty("partPurchases")
+	@XmlElementWrapper(name = "partPurchases")
 	@XmlElement(name = "partPurchase")
 	public void setPartPurchases(List<VehiclePartPurchase> partPurchases) {
 		this.partPurchases = partPurchases;
@@ -225,7 +243,8 @@ public class CarDealership {
 		return vehicleParts;
 	}
 
-	@XmlElementWrapper(name="vehicleParts")
+	@JsonProperty("vehicleParts")
+	@XmlElementWrapper(name = "vehicleParts")
 	@XmlElement(name = "vehiclePart")
 	public void setVehicleParts(List<VehiclePart> vehicleParts) {
 		this.vehicleParts = vehicleParts;
@@ -235,7 +254,8 @@ public class CarDealership {
 		return vehiclePartTypes;
 	}
 
-	@XmlElementWrapper(name="vehiclePartTypes")
+	@JsonProperty("vehiclePartTypes")
+	@XmlElementWrapper(name = "vehiclePartTypes")
 	@XmlElement(name = "vehiclePartType")
 	public void setVehiclePartTypes(List<VehiclePartType> vehiclePartTypes) {
 		this.vehiclePartTypes = vehiclePartTypes;

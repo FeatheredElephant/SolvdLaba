@@ -4,10 +4,14 @@ import java.util.Objects;
 
 import javax.xml.bind.annotation.XmlElement;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+@JsonTypeName("user")
 public class User {
 
 	private Integer id;
-
 	private String name;
 
 	public User(Integer id, String name) {
@@ -16,13 +20,14 @@ public class User {
 	}
 
 	public User() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public int getId() {
 		return id;
 	}
 
+	@JsonProperty("userid")
 	@XmlElement(name = "userId")
 	public void setId(int id) {
 		this.id = id;
@@ -32,6 +37,7 @@ public class User {
 		return name;
 	}
 
+	@JsonProperty("name")
 	@XmlElement(name = "name")
 	public void setName(String name) {
 		this.name = name;
