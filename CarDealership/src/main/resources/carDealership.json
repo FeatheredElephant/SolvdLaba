@@ -1,0 +1,119 @@
+{
+  "users" : [ {
+    "userid" : 0,
+    "name" : "John"
+  }, {
+    "userid" : 1,
+    "name" : "Jane"
+  } ],
+  "employees" : [ {
+    "employeeId" : 0,
+    "wage" : 15.0,
+    "title" : "Janitor",
+    "userId" : 0
+  }, {
+    "employeeId" : 0,
+    "wage" : 15.0,
+    "title" : "Janitor",
+    "userId" : 0
+  } ],
+  "customers" : [ {
+    "customerId" : 0,
+    "userId" : 0
+  }, {
+    "customerId" : 0,
+    "userId" : 0
+  } ],
+  "vendors" : [ {
+    "vendorId" : 0,
+    "userId" : 0
+  }, {
+    "vendorId" : 0,
+    "userId" : 0
+  } ],
+  "serviceproviders" : [ {
+    "serviceProviderId" : 0,
+    "userId" : 0
+  }, {
+    "serviceProviderId" : 0,
+    "userId" : 0
+  } ],
+  "payments" : [ {
+    "paymentId" : 0,
+    "amount" : -15.0,
+    "personId" : 0
+  }, {
+    "paymentId" : 0,
+    "amount" : -15.0,
+    "personId" : 0
+  } ],
+  "vehicles" : [ {
+    "vehicleId" : 0,
+    "year" : 2000,
+    "modelId" : 0,
+    "colorId" : 0,
+    "price" : 100.0
+  }, {
+    "vehicleId" : 0,
+    "year" : 2000,
+    "modelId" : 0,
+    "colorId" : 0,
+    "price" : 100.0
+  } ],
+  "vehicleColors" : null,
+  "vehicleModels" : null,
+  "vehicleTypes" : [ {
+    "vehicleTypeId" : 0,
+    "name" : "Sedan"
+  }, {
+    "vehicleTypeId" : 0,
+    "name" : "Sedan"
+  } ],
+  "vehicleBrands" : null,
+  "vehicleSales" : [ {
+    "saleId" : 0,
+    "customerId" : 0,
+    "vehicleId" : 0,
+    "discount" : 0.0,
+    "total" : 500.0
+  }, {
+    "saleId" : 0,
+    "customerId" : 0,
+    "vehicleId" : 0,
+    "discount" : 0.0,
+    "total" : 500.0
+  } ],
+  "vehicleServices" : [ {
+    "serviceId" : 0,
+    "serviceProviderId" : 0,
+    "vehicleId" : 0,
+    "serviceCost" : 0.0,
+    "description" : null
+  }, {
+    "serviceId" : 0,
+    "serviceProviderId" : 0,
+    "vehicleId" : 0,
+    "serviceCost" : 0.0,
+    "description" : null
+  } ],
+  "vehiclePurchases" : [ {
+    "purchaseId" : 0,
+    "vehicleId" : 0,
+    "vendorId" : 0,
+    "cost" : 100.0
+  }, {
+    "purchaseId" : 0,
+    "vehicleId" : 0,
+    "vendorId" : 0,
+    "cost" : 100.0
+  } ],
+  "partPurchases" : null,
+  "vehicleParts" : [ {
+    "partId" : 0,
+    "partTypeId" : 0
+  }, {
+    "partId" : 0,
+    "partTypeId" : 0
+  } ],
+  "vehiclePartTypes" : null
+}

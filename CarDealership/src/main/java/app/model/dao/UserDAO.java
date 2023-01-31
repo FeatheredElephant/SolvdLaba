@@ -4,8 +4,11 @@ import java.sql.*;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import app.model.domains.User;
 
+@Mapper
 public class UserDAO extends CarDealershipDAO implements BaseDAO<User>{
 	
 	@Override

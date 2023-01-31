@@ -1,4 +1,4 @@
-package app.model.xml;
+package app.model.parsers;
 
 import org.w3c.dom.*;
 
